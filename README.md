@@ -1,19 +1,21 @@
-# Safari 网页 HTML 编辑器插件 (HTML Editor for Safari)
+# 网页 HTML 编辑器浏览器插件 (HTML Editor Extension)
 
 简体中文 | [English](README_EN.md)
 
 ---
 
-这是一个专为 macOS Safari 浏览器深度适配的网页所见即所得（WYSIWYG）直接编辑插件。它能够一键将任何网页转换为“可编辑模式”（基于 `document.designMode`），支持直接在网页上修改文字内容，并通过快捷键 `Cmd + S` 将修改后的网页保存到本地。
+这是一个支持多浏览器（Safari、Chrome、Edge、Firefox）的网页所见即所得（WYSIWYG）直接编辑插件。它能够一键将任何网页转换为“可编辑模式”（基于 `document.designMode`），支持直接在网页上修改文字内容，并通过快捷键 `Cmd + S` 将修改后的网页保存到本地。
+
+我们针对 macOS Safari 浏览器进行了原生的 App 包装适配，同时也支持在 Chrome、Edge 和 Firefox 中通过解压包快速使用。
 
 ### 💡 开发背景与痛点 / Background & Motivation
 
 随着生成式 AI 的普及，越来越多的人开始利用 AI 自动生成 HTML 格式的演示文稿（网页版 PPT）、单页网站或学习课件。然而，这也带来了以下痛点：
 1. **代码门槛高**：AI 生成的 HTML 页面中如果存在错别字或微小的排版错误，非技术人员很难直接去修改 HTML 代码。
 2. **AI 交互成本高**：如果每次修改几个字、微调一段文案都要发回给 AI 重新生成，不仅效率低下，还会**浪费大量的 Token** 资源。
-3. **Safari 生态缺失**：虽然 Chrome 和 Edge 的应用商店里已经有一些类似的网页编辑插件，但 **macOS 的 Safari 浏览器生态中一直缺乏一款原生的、好用的网页文本直接编辑插件**。
+3. **生态缺失与跨端兼容**：虽然 Chrome 和 Edge 的应用商店里已经有一些类似的网页编辑插件，但很多用户也经常在 **macOS 的 Safari** 以及其他浏览器中工作。市面上缺乏一个既能完美适配 Safari 原生生态、又能跨浏览器通用的轻量网页编辑与保存方案。
 
-为了解决这个痛点，本项目开发了此款 Safari Web Extension，让用户可以像在 Word 中打字一样直接双击修改 Safari 中的网页内容，并用 `Cmd + S` 快捷保存。
+为了解决这个痛点，本项目采用标准 Web Extension 规范开发，既实现了 macOS Safari 的原生适配，也让 Chrome/Edge/Firefox 用户能够即装即用。
 
 ---
 

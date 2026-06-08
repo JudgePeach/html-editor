@@ -1,10 +1,21 @@
-# HTML Editor for Safari
+# HTML Editor Extension (Cross-Browser)
 
-简体中文 | [English](README_EN.md)
+[简体中文](README.md) | English
 
 ---
 
-A native Safari Web Extension for macOS that enables direct, real-time HTML editing right inside your Safari window. It turns any web page into an interactive WYSIWYG editor, allowing you to double-click and edit text inline without writing code, and save changes instantly via `Cmd + S`. It is the perfect tool for fine-tuning AI-generated HTML pages and slides, saving you from tedious code edits and unnecessary AI token consumption.
+A cross-browser WYSIWYG web page editor extension supporting **Safari, Chrome, Edge, and Firefox**. It turns any web page into an interactive editor, allowing you to double-click and edit text inline without writing code, and save your modifications instantly via `Cmd + S`.
+
+We have specially packaged and adapted it as a native App wrapper for macOS Safari, while also supporting quick loading on Chrome, Edge, and Firefox.
+
+### 💡 Background & Motivation
+
+With the rise of generative AI, more and more people are using AI to create HTML-formatted slide decks (web-based PPTs), single-page websites, or learning materials. However, this introduces several pain points:
+1. **Coding Barrier**: If there's a typo or a minor layout bug, non-technical users find it hard to edit HTML source code directly.
+2. **High Interaction Costs**: Sending files back to AI for minor adjustments is slow and **wastes a significant amount of tokens**.
+3. **Ecosystem & Cross-Platform Gap**: While similar extensions exist in Chrome and Edge stores, many users work in macOS Safari as well as other browsers. There was a lack of a lightweight, cross-browser editing and saving solution that integrates natively with Safari.
+
+To resolve these issues, this project is built conforming to the standard Web Extension specification. It provides native macOS Safari packaging while offering instant install-and-use capability for Chrome, Edge, and Firefox.
 
 ---
 
