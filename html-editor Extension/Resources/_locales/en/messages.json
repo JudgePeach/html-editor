@@ -1,10 +1,10 @@
 {
     "extension_name": {
-        "message": "html-editor Extension",
+        "message": "HTML Editor for Safari",
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "This is html-editor Extension. You should tell us what your extension does here.",
+        "message": "A native macOS Safari extension for direct HTML web page editing: edit text inline without coding and save changes instantly with a single shortcut.",
         "description": "Description of what the extension does."
     }
 }
