@@ -48,56 +48,52 @@
 
 ---
 
-## 🚀 安装与部署指南
+## 🚀 安装指南 (Installation Guide)
 
-### 1. 作为 Safari 浏览器插件安装（macOS）
+根据你使用的浏览器类型，选择以下对应的安装方式：
 
-由于 Safari 插件要求必须嵌入在一个 macOS 应用程序中，你可以使用 Xcode 在本地直接编译并启用它：
+### 1️⃣ Chrome / Edge / Firefox 浏览器 (免编译，推荐)
+由于这些浏览器支持直接加载未打包扩展，安装最为简单快捷：
+1. **下载安装包**：在本项目根目录下载 [html-editor-chrome-firefox.zip](html-editor-chrome-firefox.zip) 并解压，得到 `Resources` 文件夹。
+2. **进入扩展管理页**：
+   - **Chrome**: 在地址栏输入 `chrome://extensions/`
+   - **Edge**: 在地址栏输入 `edge://extensions/`
+3. **启用“开发者模式”**：开启页面右上角（或左下角）的 **“开发者模式” (Developer mode)** 开关。
+4. **加载扩展**：点击 **“加载已解压的扩展程序” (Load unpacked)** 按钮，选中解压出来的 `Resources` 文件夹。
+5. **开始使用**：在浏览器工具栏点击该插件图标即可开启/关闭编辑模式，编辑完成后按 `Cmd + S` / `Ctrl + S` 快捷保存网页。
 
+---
+
+### 2️⃣ macOS Safari 浏览器 (需要本地编译或开发者签名)
+根据 Safari 的安全机制，非应用商店下载的扩展必须经过苹果证书签名公证，或者通过 Xcode 进行本地调试注册：
+
+#### 💡 方法 A：使用 Xcode 本地免费编译运行 (推荐，完全免费)
+如果不想支付苹果每年 $99 的开发者账号费用，可以让有安装了 Xcode 的 Mac 用户自行本地编译：
 1. **准备工作**：确保你的 Mac 上安装了 **Xcode**（可从 App Store 免费下载）。
 2. **克隆项目**：
    ```bash
-   git clone <你的 GitHub 仓库地址>
+   git clone https://github.com/JudgePeach/html-editor.git
    cd html-editor
    ```
 3. **打开项目**：双击打开 `html-editor.xcodeproj`。
-4. **开启 Safari 开发者模式**：
+4. **启用 Safari 开发菜单**：
    - 打开 Safari 浏览器 -> 菜单栏选择 `设置 (Settings)` -> `高级 (Advanced)`。
    - 勾选最下方的 `在菜单栏中显示“开发”菜单 (Show Develop menu in menu bar)`。
    - 点击 Safari 菜单栏的 `开发 (Develop)` -> 勾选 `允许未签名的扩展 (Allow Unsigned Extensions)`。
 5. **编译运行**：
    - 在 Xcode 中，确保 Scheme 选择的是 `html-editor`，目标选择 `My Mac`。
-   - 按下 `Cmd + R` 或点击左上角的运行按钮。
-   - 编译成功后会弹出一个 macOS App 窗口，提示你插件已就绪。
+   - 按下 `Cmd + R` 进行编译运行。
+   - 运行后会弹出一个小 App 容器窗口，表示插件已被注册到系统，此时即可关闭该 App 窗口。
 6. **启用插件**：
    - 回到 Safari，打开 `设置 (Settings)` -> `扩展 (Extensions)`。
-   - 找到 **html-editor Extension**，勾选启用，并授予其对网页的访问权限。
+   - 勾选 **HTML Editor for Safari** 启用它，并授予其对网页的访问权限。
 
----
-
-## 📦 如何打包为他人可直接安装的包？
-
-由于 Safari 的安全限制，非开发者自己编译的 Safari 插件需要经过苹果官方的签名签名（Developer ID）和公证（Notarization），或者发布到 Mac App Store。如果你希望更方便地分发给他人，有以下几种最简便的方案：
-
-### 方案 A：打包为 Chrome/Firefox/Edge 扩展包（推荐，最普适）
-因为本插件的核心是标准的 Web Extension（位于 `Resources` 目录），任何人都可以直接使用它：
-1. 将 `html-editor Extension/Resources` 目录单独提取出来。
-2. 将其压缩为 `.zip` 文件，即可作为 Chrome/Firefox 的离线安装包。
-3. **他人安装方法**：
-   - 解压 zip 文件。
-   - 打开 Chrome/Edge，进入 `chrome://extensions/`。
-   - 开启右上角的 **“开发者模式” (Developer mode)**。
-   - 点击 **“加载已解压的扩展程序” (Load unpacked)**，选择刚刚解压的 `Resources` 文件夹即可。
-
-### 方案 B：打包为 macOS 应用程序单独分发
-如果你有 **Apple Developer 开发者账号**（$99/年），你可以直接打包导出一个 `.dmg` 或 `.zip` 的 macOS 应用：
+#### 💡 方法 B：打包分发为独立免 Xcode 安装包 (需要付费开发者账号)
+如果你拥有 **Apple Developer 开发者账号**（$99/年），你可以将其打包为独立的 `.dmg` 安装包分发给普通用户：
 1. 在 Xcode 中，选择菜单栏 `Product` -> `Archive`。
-2. 归档完成后，在 Organizer 中选择 `Distribute App`。
-3. 选择 `Developer ID` 或 `Direct Distribution`，使用你的开发者证书进行签名并提交苹果公证（Notarize）。
-4. 导出后打包为 `.dmg`，其他人下载解压后，将应用拖入“应用程序”文件夹运行一次，即可在 Safari 扩展设置中看到并启用它。
-
-> [!NOTE]
-> 如果接收者也安装了 Xcode，最简单的方法是让他们直接用 Xcode 打开本项目，按 `Cmd + R` 运行一次，这不需要付费开发者账号。
+2. 归档完成后，在 Organizer 中选择 `Distribute App` -> `Developer ID`。
+3. 签名并提交苹果公证（Notarize）。
+4. 导出后打包为 `.dmg` 文件，其他用户双击运行安装此 App 后，即可直接在 Safari 设置中激活该扩展，无需 Xcode 即可下载即用。
 
 ---
 
