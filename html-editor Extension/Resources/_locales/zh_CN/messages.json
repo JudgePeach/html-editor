@@ -1,0 +1,10 @@
+{
+    "extension_name": {
+        "message": "网页 HTML 编辑器插件 (HTML Editor Extension)",
+        "description": "The display name for the extension."
+    },
+    "extension_description": {
+        "message": "支持多浏览器且深度适配 macOS Safari 的网页 HTML 直改插件：免代码直接编辑网页文本，快捷键一键保存修改，完美解决 AI 生成网页微调痛点。",
+        "description": "Description of what the extension does."
+    }
+}

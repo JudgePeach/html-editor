@@ -4,7 +4,7 @@
         "description": "The display name for the extension."
     },
     "extension_description": {
-        "message": "A native macOS Safari extension for direct HTML web page editing: edit text inline without coding and save changes instantly with a single shortcut.",
+        "message": "A cross-browser extension (fully adapted for macOS Safari) for direct HTML web page editing: edit text inline without coding and save changes instantly with a single shortcut.",
         "description": "Description of what the extension does."
     }
 }
