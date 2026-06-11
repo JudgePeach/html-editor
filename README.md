@@ -88,6 +88,17 @@
    - 回到 Safari，打开 `设置 (Settings)` -> `扩展 (Extensions)`。
    - 勾选 **HTML Editor for Safari** 启用它，并授予其对网页的访问权限。
 
+> [!IMPORTANT]
+> **⚠️ 本地测试版避坑指南 (必读)：**
+> 
+> 1. **防止插件因为清理缓存而消失**：
+>    通过 Xcode 直接 `Cmd + R` 运行的 App 存放在临时缓存目录（DerivedData）。一旦 Xcode 缓存被清理，或者您关闭了 Xcode，Safari 可能会找不到插件。
+>    **推荐做法**：编译成功后，在 Xcode 编译输出路径中找到 `html-editor.app`，或者前往 Xcode 的输出路径，将 `html-editor.app` 复制到您的系统的 `~/Applications` (或 `/Applications`) 目录中。这样它就成为了本地永久安装的 App，绝不会再次因缓存清理而丢失。
+> 2. **Safari 重启后插件隐去的问题**：
+>    出于安全考虑，Safari 每次**彻底退出并重新打开**（例如重启 Mac 或手动 `Cmd + Q`）之后，都会自动重置并**关闭“允许未签名的扩展”**这一开发者选项，导致插件在工具栏和设置中暂时隐藏。
+>    **恢复方法**：您**不需要**重新打开 Xcode 编译，只需再次在 Safari 菜单栏点击 `开发 (Develop)` -> 勾选 `允许未签名的扩展 (Allow Unsigned Extensions)`，然后前往 `设置 -> 扩展` 重新勾选启用该插件即可。
+
+
 #### 💡 方法 B：打包分发为独立免 Xcode 安装包 (需要付费开发者账号)
 如果你拥有 **Apple Developer 开发者账号**（$99/年），你可以将其打包为独立的 `.dmg` 安装包分发给普通用户：
 1. 在 Xcode 中，选择菜单栏 `Product` -> `Archive`。

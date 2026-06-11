@@ -88,6 +88,17 @@ If you don't have a paid developer account, you can build the container app loca
    - Go back to Safari -> Open `Settings` -> `Extensions`.
    - Find **HTML Editor for Safari**, check it to enable, and grant it permissions to access webpages.
 
+> [!IMPORTANT]
+> **⚠️ Local Sandbox & Persistence Tips (Must-Read):**
+> 
+> 1. **Prevent Extension from Disappearing due to Cache Cleanup**:
+>    Apps run directly via Xcode `Cmd + R` reside in Xcode's temporary build directory (`DerivedData`). If Xcode cleans its cache or you delete build folders, Safari will lose track of the extension.
+>    **Recommended Action**: After building successfully, locate `html-editor.app` (under the Xcode build outputs) and copy it into your user's `~/Applications` (or system's `/Applications`) directory. This permanently registers the app, preventing it from disappearing.
+> 2. **Safari Restart Reset Issue**:
+>    Every time you **completely quit and relaunch Safari** (or restart your Mac), Safari automatically resets and **disables the "Allow Unsigned Extensions"** option in the Develop menu for security. This causes the extension to disappear from the toolbar and settings.
+>    **How to Restore**: You **do not need** to open Xcode or recompile. Simply click Safari's menu bar -> `Develop` -> check `Allow Unsigned Extensions` again, then go to Safari `Settings` -> `Extensions` and re-enable it.
+
+
 #### 💡 Method B: Distribute as a Standalone App (Requires Paid Developer Account)
 If you have an **Apple Developer Account** ($99/year), you can export a signed app package for others to download and use instantly:
 1. In Xcode, select `Product` -> `Archive`.
